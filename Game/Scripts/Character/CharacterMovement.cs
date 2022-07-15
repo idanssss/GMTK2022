@@ -15,7 +15,8 @@ public class CharacterMovement : MonoBehaviour
 			value.Normalize();
 			if (_moveDirection == value) return;
 
-			MoveSpeed = _moveDirection * MoveSpeed;
+			_moveDirection = value;
+			MoveSpeed = _moveDirection * moveSpeed;
 		}
     }
 
