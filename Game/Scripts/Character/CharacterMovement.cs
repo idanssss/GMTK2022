@@ -29,5 +29,8 @@ public class CharacterMovement : MonoBehaviour
 	public void Move(Vector2 moveDir) => MoveDirection = moveDir;
 
     private void FixedUpdate() => UpdateVelocity();
-    private void UpdateVelocity() => rb.velocity = MoveSpeed;
+    private void UpdateVelocity()
+    {
+	    rb.velocity = MoveSpeed;
+    }
 }
