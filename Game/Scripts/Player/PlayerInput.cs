@@ -4,6 +4,8 @@ using UnityEngine;
 [RequireComponent(typeof(CharacterMovement))]
 public class PlayerInput : MonoBehaviour
 {
+    private Camera cam;
+    
     private CharacterMovement _movement;
     
     [SerializeField]
@@ -13,9 +15,11 @@ public class PlayerInput : MonoBehaviour
 
     private void Awake()
     {
+        cam = Camera.main;
+        
         _movement = GetComponent<CharacterMovement>();
         gun = gunObj.GetComponent<Gun>();
-        
+
         if (!gun) Debug.LogError("No gun found on gun object");
     }
 
@@ -23,8 +27,10 @@ public class PlayerInput : MonoBehaviour
     {
         var horizontal = Input.GetAxisRaw("Horizontal");
         var vertical = Input.GetAxisRaw("Vertical");
-
-        Debug.Log(horizontal);
+        
         _movement.Move(horizontal, vertical);
+
+        Vector2 mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
+        gun.LookAt(mousePos);
     }
 }
