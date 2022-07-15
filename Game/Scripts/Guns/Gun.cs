@@ -6,7 +6,7 @@ using UnityEngine.UIElements;
 public class Gun : MonoBehaviour
 {
     [SerializeField]
-    
+    GameObject GunEnd;
     
     public void LookAt(Vector2 pos)
     {
@@ -16,9 +16,13 @@ public class Gun : MonoBehaviour
         transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
     }
 
-    // TODO: Implement Bullet Shooting
-    public void Shoot(Vector2 pos)
+    public void Shoot()
     {
-        
+        RaycastHit2D hit = Physics2D.Raycast(GunEnd.transform.position, GunEnd.transform.right);
+
+        if(hit.collider != null)
+        {
+            Debug.Log("Hit Object " + hit.collider.transform.name);
+        }
     }
 }

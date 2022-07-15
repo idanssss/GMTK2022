@@ -13,6 +13,9 @@ public class PlayerInput : MonoBehaviour
 
     private Gun gun;
 
+    //TODO : Add custom key bindings for shooting
+    //private KeyCode shootButton;
+
     private void Awake()
     {
         cam = Camera.main;
@@ -32,5 +35,7 @@ public class PlayerInput : MonoBehaviour
 
         Vector2 mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
         gun.LookAt(mousePos);
+        if(Input.GetMouseButtonDown(0))
+            gun.Shoot();
     }
 }
