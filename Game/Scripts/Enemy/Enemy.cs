@@ -12,8 +12,7 @@ public class Enemy : MonoBehaviour
     void Update()
     {
         UpdateTarget();
-        if(Random.Range(0,4) > 1)
-            Move();
+        Move();
     }
 
     void UpdateTarget()
@@ -34,7 +33,7 @@ public class Enemy : MonoBehaviour
 
     void Move()
     {
-        var value = Random.Range(0,4);
-        cm.Move(value == 0 ? transform.right : value == 1 ? -transform.right : value == 2 ? transform.up : -transform.up);
+        var val = Random.Range(0,4);
+        cm.Move(val == 0 ? transform.right : val == 1 ? -transform.right : val == 2 ? transform.up : -transform.up);
     }
 }
