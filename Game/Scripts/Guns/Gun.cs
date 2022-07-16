@@ -1,7 +1,5 @@
 using UnityEngine;
 using System.Collections;
-using System.Collections.Generic;
-using Unity.Mathematics;
 using Assert = UnityEngine.Assertions.Assert;
 
 public class Gun : MonoBehaviour
@@ -11,6 +9,7 @@ public class Gun : MonoBehaviour
 
     private int nBulletsLoaded;
     private bool canShoot = true;
+    private bool reloading;
 
     private void Awake()
     {
@@ -31,7 +30,7 @@ public class Gun : MonoBehaviour
 
     public void Shoot()
     {
-        if (!canShoot || nBulletsLoaded <= 0) return;
+        if (!canShoot || nBulletsLoaded <= 0 || reloading) return;
         
         nBulletsLoaded--;
         canShoot = false;
@@ -56,8 +55,10 @@ public class Gun : MonoBehaviour
     
     private IEnumerator ReloadCoroutine()
     {
+        reloading = true;
         yield return new WaitForSeconds(gunProps.ReloadTime);
         nBulletsLoaded = gunProps.MaxAmmo;
+        reloading = false;
     }
 
     public void SetTarget(Vector2 targetPos) => Target = targetPos;

@@ -2,6 +2,7 @@ using UnityEngine;
 using Assert = UnityEngine.Assertions.Assert;
 
 [RequireComponent(typeof(CharacterMovement))]
+[RequireComponent(typeof(CharacterHealth))]
 public class PlayerInput : MonoBehaviour
 {
     private Camera cam;

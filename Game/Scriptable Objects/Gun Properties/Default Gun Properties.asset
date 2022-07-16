@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5d043d4ae254ff297a3a07f93caa70b, type: 3}
   m_Name: Default Gun Properties
   m_EditorClassIdentifier: 
-  damage: 1
-  fireRate: 0
+  damage: 10
+  fireRate: 0.5
   reloadTime: 0.5
-  bulletSpeed: 100
+  bulletSpeed: 75
   maxAmmo: 50
   bulletPrefab: {fileID: 4554408069366336064, guid: 98a18b11badc942eca16cda05ff15762, type: 3}
