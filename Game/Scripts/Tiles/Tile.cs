@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,15 +7,6 @@ using TMPro;
 [RequireComponent(typeof(SpriteRenderer))]
 public class Tile : MonoBehaviour
 {
-    public Dictionary<int, Color> dieColors = new Dictionary<int, Color>() {
-        { 1, Color.black },
-        { 2, Color.black },
-        { 3, Color.black },
-        { 4, Color.black },
-        { 5, Color.black },
-        { 6, Color.black }
-    }; 
-
     public int AssociatedNumber { get; private set; }
 
     private TextMeshPro _text;
@@ -56,10 +48,11 @@ public class Tile : MonoBehaviour
         }
     }
 
+    private void Awake() {  Rend.color = Color.white; }
+
     public void UpdateUI()
     {
         Text.text = AssociatedNumber.ToString();
-        Rend.color = dieColors[AssociatedNumber];
     }
 
     public void SetAssociatedNumber(int number) => AssociatedNumber = number;
