@@ -1,5 +1,5 @@
-using System;
 using UnityEngine;
+using Assert = UnityEngine.Assertions.Assert;
 
 [RequireComponent(typeof(CharacterMovement))]
 public class PlayerInput : MonoBehaviour
@@ -13,17 +13,18 @@ public class PlayerInput : MonoBehaviour
 
     private Gun gun;
 
-    //TODO : Add custom key bindings for shooting
-    //private KeyCode shootButton;
+    // TODO : Add custom key bindings for shooting
 
     private void Awake()
     {
         cam = Camera.main;
-        
         _movement = GetComponent<CharacterMovement>();
+        
+        // Assign gun
+        Assert.IsNotNull(gunObj, "No gun object assigned to PlayerInput");
+        
         gun = gunObj.GetComponent<Gun>();
-
-        if (!gun) Debug.LogError("No gun found on gun object");
+        Assert.IsNotNull(gun, "No gun component attached to gun object");
     }
 
     private void Update()

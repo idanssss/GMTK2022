@@ -1,22 +1,21 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Numerics;
-using Unity.Mathematics;
 using UnityEngine;
-using UnityEngine.UIElements;
-using Quaternion = UnityEngine.Quaternion;
-using Vector2 = UnityEngine.Vector2;
-using Vector3 = UnityEngine.Vector3;
+using Assert = UnityEngine.Assertions.Assert;
 
 public class Gun : MonoBehaviour
 {
     public Vector2 Target { get; private set; }
+    [SerializeField] private GunProperties gunProps;
 
-    private void Update()
+    public int nBulletsLoaded;
+
+    private void Awake()
     {
-        LookAtTarget();
+        Assert.IsNotNull(gunProps, "Gun properties not set!");
+
+        nBulletsLoaded = gunProps.MaxAmmo;
     }
+
+    private void FixedUpdate() => LookAtTarget();
 
     private void LookAtTarget()
     {
