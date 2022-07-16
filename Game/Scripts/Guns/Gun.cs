@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using Assert = UnityEngine.Assertions.Assert;
 
 public class Gun : MonoBehaviour
@@ -31,44 +32,14 @@ public class Gun : MonoBehaviour
     public void Shoot()
     {
         if (!canShoot || nBulletsLoaded <= 0) return;
-        StartCoroutine(HitTarget(GetHit()));
-    }
-
-    private GameObject GetHit()
-    {
-        Vector2 position = transform.position;
-        Vector2 dir = (Target - position).normalized;;
         
-        Vector2 origin = position + dir.normalized * transform.localScale.x * 0.5f;
-        
-        var hits = Physics2D.RaycastAll(origin, dir);
-
-        foreach (RaycastHit2D hit in hits)
-        {
-            var hitColl = hit.collider;
-
-            if (hitColl == null || transform.IsChildOf(hitColl.transform)) continue;
-            return hitColl.gameObject;
-        }
-
-        return null;
-    }
-
-    private IEnumerator HitTarget(GameObject go)
-    {
         nBulletsLoaded--;
-
         canShoot = false;
         StartCoroutine(CanShootCooldown());
-
-        CharacterHealth health;
-        if (!go || !(health = go.GetComponent<CharacterHealth>()))
-            yield break;
-
-        float distance = (go.transform.position - transform.position).magnitude;
-        yield return new WaitForSeconds(distance / gunProps.BulletSpeed);
-
-        health.Hit(gunProps.Damage);
+        
+        GameObject bulletGo = Instantiate(gunProps.BulletPrefab, transform.position, Quaternion.identity);
+        Bullet bullet = bulletGo.GetComponent<Bullet>();
+        bullet.Shoot(Target - (Vector2)transform.position, gunProps);
     }
 
     private IEnumerator CanShootCooldown()

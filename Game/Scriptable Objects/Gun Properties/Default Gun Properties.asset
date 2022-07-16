@@ -17,3 +17,4 @@ MonoBehaviour:
   reloadTime: 0.5
   bulletSpeed: 100
   maxAmmo: 50
+  bulletPrefab: {fileID: 4554408069366336064, guid: 98a18b11badc942eca16cda05ff15762, type: 3}

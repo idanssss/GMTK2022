@@ -8,6 +8,7 @@ public class GunProperties : ScriptableObject
     [SerializeField] private float reloadTime = 0.5f;
     [SerializeField] private float bulletSpeed = 10f;
     [SerializeField] private int maxAmmo = 50;
+    [SerializeField] private GameObject bulletPrefab;
         
     public string Name => name;
     public float Damage => damage;
@@ -15,4 +16,5 @@ public class GunProperties : ScriptableObject
     public float ReloadTime => reloadTime;
     public float BulletSpeed => bulletSpeed;
     public int MaxAmmo => maxAmmo;
+    public GameObject BulletPrefab => bulletPrefab;
 }
