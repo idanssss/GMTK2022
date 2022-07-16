@@ -5,6 +5,8 @@ using Assert = UnityEngine.Assertions.Assert;
 [RequireComponent(typeof(CharacterHealth))]
 public class PlayerInput : MonoBehaviour
 {
+    public static PlayerInput Player;
+    
     private Camera cam;
     
     private CharacterMovement _movement;
@@ -19,6 +21,9 @@ public class PlayerInput : MonoBehaviour
 
     private void Awake()
     {
+        if (Player) Destroy(gameObject);
+        else Player = this;
+        
         cam = Camera.main;
         _movement = GetComponent<CharacterMovement>();
         

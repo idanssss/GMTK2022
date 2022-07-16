@@ -30,6 +30,13 @@ public class Tile : MonoBehaviour
     }
 
     private bool _exists = true;
+    private bool _shaking;
+
+    public bool Shaking
+    {
+        get => _shaking;
+        private set => _shaking = value;
+    }
 
     public bool Exists
     {
@@ -59,6 +66,7 @@ public class Tile : MonoBehaviour
     public void Drop(float duration, float strength)
     {
         // StartCoroutine(FlashCoroutine(times));
+        Shaking = true;
         transform.Shake(duration, strength, () => Exists = false);
     }
 
