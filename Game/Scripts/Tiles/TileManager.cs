@@ -16,6 +16,8 @@ public class TileManager : MonoBehaviour
     [SerializeField] private float shakeStrength = 1f;
     
     public int[] dropped = new int[6];
+
+    public event System.Action OnNewBoard;
     
     public static Tile[,] tiles;
 
@@ -55,6 +57,8 @@ public class TileManager : MonoBehaviour
                 tile.UpdateUI();
             }
         }
+        
+        OnNewBoard?.Invoke();
     }
 
     public void DestroyAll()
