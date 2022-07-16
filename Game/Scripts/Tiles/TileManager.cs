@@ -1,11 +1,10 @@
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Assertions;
 
 public class TileManager : MonoBehaviour
 {
     [SerializeField]
-    private int height, width;
+    private int width, height;
 
     [SerializeField]
     private float space;
@@ -13,7 +12,7 @@ public class TileManager : MonoBehaviour
     [SerializeField]
     private GameObject tilePrefab; 
 
-    public static List<Tile> tiles = new List<Tile>();
+    public static Tile[,] tiles;
 
     void Start()
     {
@@ -24,33 +23,65 @@ public class TileManager : MonoBehaviour
 
     public void Generate()
     {
-        foreach (var tile in tiles)
-        {
-            if (tile && tile.gameObject) DestroyImmediate(tile.gameObject);
-        }
+        DestroyAll();
+        tiles = new Tile[width, height];
+        
+        float spacingOffset = tilePrefab.transform.localScale.x + space;
         
         for(int i = 0; i < width; i++)
         {
             float xPos = i - width / 2;
             if (width % 2 == 0)
                 xPos += 0.5f;
-            
+
             for(int j = 0; j < height; j++)
             {
                 float yPos = j - height / 2;
                 if (height % 2 == 0)
                     yPos += 0.5f;
 
-                Vector2 pos = new Vector2(xPos * (1 + space), yPos * (1 + space));
+                Vector2 pos = new Vector2(xPos * spacingOffset, yPos * spacingOffset);
                 GameObject tileGo = Instantiate(tilePrefab, pos, Quaternion.identity, transform);
                 
                 tileGo.name = $"Tile {i} {j}";
                 Tile tile = tileGo.GetComponent<Tile>();
-                tiles.Add(tile);
+                tiles[i, j] = tile;
                 
                 tile.SetAssociatedNumber(Random.Range(1,7));
                 tile.UpdateUI();
             }
+        }
+    }
+
+    public void DestroyAll()
+    {
+        if (tiles != null)
+        {
+            foreach (var tile in tiles)
+                if (tile && tile.gameObject) DestroyImmediate(tile.gameObject);
+        }
+
+        while (transform.childCount > 0)
+        {
+            for (int i = 0; i < transform.childCount; i++)
+                DestroyImmediate(transform.GetChild(i).gameObject);
+        }
+
+        tiles = new Tile[width, height];
+    }
+    
+    public void Drop(int number)
+    {
+        if (number < 1 || number > 6)
+        {
+            Debug.LogError($"Invalid dice number {number}", gameObject);
+            return;
+        }
+
+        foreach (var tile in tiles)
+        {
+            if (tile.AssociatedNumber == number)
+                tile.Drop();
         }
     }
 }
