@@ -253,6 +253,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   text: {fileID: 2027551270}
+  rollTime: 2
+  rollsPerSecond: 4
   tm: {fileID: 1575614774}
 --- !u!1 &1303882313
 GameObject:
@@ -459,6 +461,8 @@ MonoBehaviour:
   height: 5
   space: 0.15
   tilePrefab: {fileID: 3369210619583477397, guid: bd8ec8cc0f7a40546b3b519b010a2bb9, type: 3}
+  shakeDuration: 1.5
+  shakeStrength: 1
   dropped: 000000000000000000000000000000000000000000000000
 --- !u!4 &1575614775
 Transform:
@@ -523,7 +527,7 @@ MonoBehaviour:
   timerText: {fileID: 1303882314}
   dice: {fileID: 1169609466}
   time: 0
-  timeToStart: 3
+  timeToStart: 10
 --- !u!1 &2027551268
 GameObject:
   m_ObjectHideFlags: 0

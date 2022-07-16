@@ -12,7 +12,8 @@ public class TileManager : MonoBehaviour
     [SerializeField]
     private GameObject tilePrefab;
 
-    [SerializeField] private float shakeDuration = 1.5f, shakeStrength = 1f;
+    public float shakeDuration = 1.5f;
+    [SerializeField] private float shakeStrength = 1f;
     
     public int[] dropped = new int[6];
     

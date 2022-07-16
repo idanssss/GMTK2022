@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Linq;
 using TMPro;
 using UnityEngine;
@@ -5,14 +6,30 @@ using UnityEngine;
 public class Dice : MonoBehaviour
 {
     [SerializeField] private TextMeshPro text;
-    [SerializeField] private TileManager tm;
-
+    [SerializeField] private float rollTime = 2f;
+    [SerializeField] private float rollsPerSecond = 4f;
+    
+    public TileManager tm;
+    
     public int Value { get; private set; }
     
-    public void Roll()
+    public void Roll(Stopwatch stopwatch)
     {
         if (tm.dropped[5] != 0)
             tm.ResetTiles();
+
+        StartCoroutine(RollCoroutine(stopwatch));
+    }
+
+    private IEnumerator RollCoroutine(Stopwatch stopwatch)
+    {
+        for (int i = 0; i < rollTime * rollsPerSecond; i++)
+        {
+            Value = Random.Range(1, 7);
+            text.text = Value.ToString();
+            
+            yield return new WaitForSeconds(1 / rollsPerSecond);
+        }
         
         int random = Random.Range(1, 7);
         while (tm.dropped.Contains(random))
@@ -21,6 +38,8 @@ public class Dice : MonoBehaviour
         Value = random;
         text.text = Value.ToString();
         tm.Drop(Value);
-        // transform.Rotate(0, 0, random * (360 / 6));
+
+        stopwatch.ResetTime();
+        stopwatch.count = true;
     }
 }
