@@ -1,6 +1,4 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
@@ -9,15 +7,8 @@ public class Tile : MonoBehaviour
 {
     public int AssociatedNumber { get; private set; }
 
-    private TextMeshPro _text;
-    private TextMeshPro Text
-    {
-        get
-        {
-            _text ??= GetComponentInChildren<TextMeshPro>();
-            return _text;
-        }
-    }
+    [SerializeField]
+    private SpriteRenderer numberRend;
 
     private SpriteRenderer _rend;
     private SpriteRenderer Rend
@@ -48,8 +39,8 @@ public class Tile : MonoBehaviour
             if (Rend)
                 Rend.enabled = value;
             
-            if (Text)
-                Text.enabled = value;
+            if (numberRend)
+                numberRend.enabled = value;
             
             _exists = value;
         }
@@ -57,10 +48,7 @@ public class Tile : MonoBehaviour
 
     private void Awake() {  Rend.color = Color.white; }
 
-    public void UpdateUI()
-    {
-        Text.text = AssociatedNumber.ToString();
-    }
+    public void UpdateUI() => numberRend.sprite = Numbers.GetSprite(AssociatedNumber);
 
     public void SetAssociatedNumber(int number) => AssociatedNumber = number;
     public void Drop(float duration, float strength)
