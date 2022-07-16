@@ -94,7 +94,7 @@ public class Tile : MonoBehaviour
 
     public void ResetTile() => Exists = true;
 
-    public void OnTriggerEnter2D(Collider2D other)
+    public void OnTriggerStay2D(Collider2D other)
     {
         if (Exists) return; 
         other.gameObject.SetActive(false);
