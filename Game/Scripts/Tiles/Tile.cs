@@ -6,7 +6,7 @@ using TMPro;
 [RequireComponent(typeof(SpriteRenderer))]
 public class Tile : MonoBehaviour
 {
-    public Dictionary<int, Color> dieColors = new() {
+    public Dictionary<int, Color> dieColors = new Dictionary<int, Color>() {
         { 1, Color.red },
         { 2, Color.green },
         { 3, Color.blue },
