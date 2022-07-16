@@ -5,13 +5,25 @@ using TMPro;
 
 public class Tile : MonoBehaviour
 {
-    public int AssociatedNumber;
-    bool enabled;
+    private int associatedNumber;
 
-    void Start() => transform.GetChild(0).GetComponent<TextMeshPro>().text = string.Concat(AssociatedNumber);
+    private TextMeshPro _text;
+    private TextMeshPro Text
+    {
+        get
+        {
+            _text ??= GetComponentInChildren<TextMeshPro>();
+            return _text;
+        }
+    }
 
-    public void fall() => enabled = false;
-    public void unfall() => enabled = true;
+    private bool exists;
 
-    public void OnTriggerEnter2D(Collider2D other) => other.gameObject.SetActive(enabled);
+    public void UpdateUI() => Text.text = associatedNumber.ToString();
+
+    public void SetAssociatedNumber(int number) => associatedNumber = number;
+    public void Fall() => exists = false;
+    public void ResetTile() => exists = true;
+
+    public void OnTriggerEnter2D(Collider2D other) => other.gameObject.SetActive(exists);
 }
