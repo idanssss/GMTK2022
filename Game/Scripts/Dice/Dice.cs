@@ -8,7 +8,7 @@ public class Dice : MonoBehaviour
     [SerializeField] private TextMeshPro text;
     [SerializeField] private float rollTime = 2f;
     [SerializeField] private float rollsPerSecond = 4f;
-    
+
     public TileManager tm;
     
     public int Value { get; private set; }
@@ -23,12 +23,14 @@ public class Dice : MonoBehaviour
 
     private IEnumerator RollCoroutine(Stopwatch stopwatch)
     {
+        float timeBetween = rollTime;
         for (int i = 0; i < rollTime * rollsPerSecond; i++)
         {
             Value = Random.Range(1, 7);
             text.text = Value.ToString();
-            
-            yield return new WaitForSeconds(1 / rollsPerSecond);
+
+            timeBetween = Mathf.Lerp(timeBetween, 0.1f, 0.5f);
+            yield return new WaitForSeconds(timeBetween);
         }
         
         int random = Random.Range(1, 7);
