@@ -28,7 +28,7 @@ public class TestHealth : MonoBehaviour
 
     private void OnDie()
     {
-        GetComponent<Entity>().dead = true;
+        rend.enabled = false;
     }
 
     private IEnumerator Hit()

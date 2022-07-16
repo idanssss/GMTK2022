@@ -135,4 +135,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   visible: 0
-  shotBy: {fileID: 0}

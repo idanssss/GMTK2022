@@ -17,7 +17,6 @@ public class Gun : MonoBehaviour
         nBulletsLoaded = gunProps.MaxAmmo;
     }
 
-
     private void FixedUpdate() => LookAtTarget();
 
     private void LookAtTarget()
@@ -39,7 +38,6 @@ public class Gun : MonoBehaviour
         
         GameObject bulletGo = Instantiate(gunProps.BulletPrefab, transform.position, Quaternion.identity);
         Bullet bullet = bulletGo.GetComponent<Bullet>();
-        bullet.shotBy = transform.parent.gameObject;
         bullet.Shoot(Target - (Vector2)transform.position, gunProps);
     }
 
