@@ -37,7 +37,8 @@ public class Gun : MonoBehaviour
         if (!canShoot || nBulletsLoaded <= 0 || reloading) return;
         
         nBulletsLoaded--;
-        bulletCountText.text = string.Concat(nBulletsLoaded);
+        if(transform.parent.name == "Player")
+            bulletCountText.text = string.Concat(nBulletsLoaded);
         canShoot = false;
         StartCoroutine(CanShootCooldown());
         
@@ -50,7 +51,8 @@ public class Gun : MonoBehaviour
     private IEnumerator CanShootCooldown()
     {
         yield return new WaitForSeconds(gunProps.FireRate);
-        bulletCountText.text = string.Concat(nBulletsLoaded);
+        if(transform.parent.name == "Player")
+            bulletCountText.text = string.Concat(nBulletsLoaded);
         canShoot = true;
     }
 
@@ -65,7 +67,8 @@ public class Gun : MonoBehaviour
         reloading = true;
         yield return new WaitForSeconds(gunProps.ReloadTime);
         nBulletsLoaded = gunProps.MaxAmmo;
-        bulletCountText.text = string.Concat(nBulletsLoaded);
+        if(transform.parent.name == "Player")
+            bulletCountText.text = string.Concat(nBulletsLoaded);
         reloading = false;
     }
 
