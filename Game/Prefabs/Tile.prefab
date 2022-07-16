@@ -11,7 +11,11 @@ GameObject:
   - component: {fileID: 3369210619583477399}
   - component: {fileID: 3369210619583477396}
   - component: {fileID: 3369210619583477398}
+<<<<<<< Updated upstream
   - component: {fileID: 2266608527187669451}
+=======
+  - component: {fileID: 4328133430434852964}
+>>>>>>> Stashed changes
   m_Layer: 0
   m_Name: Tile
   m_TagString: Untagged
@@ -97,14 +101,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cee3a85bead58c04ea701ba01cb470db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< Updated upstream
 --- !u!61 &2266608527187669451
 BoxCollider2D:
+=======
+--- !u!95 &4328133430434852964
+Animator:
+  serializedVersion: 4
+>>>>>>> Stashed changes
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3369210619583477397}
   m_Enabled: 1
+<<<<<<< Updated upstream
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
@@ -123,6 +134,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+=======
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d1904a9de6dab4e2db94fdd154d0f1f6, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+>>>>>>> Stashed changes
 --- !u!1 &3369210620372199281
 GameObject:
   m_ObjectHideFlags: 0
