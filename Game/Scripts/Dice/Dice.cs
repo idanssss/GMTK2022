@@ -23,7 +23,7 @@ public class Dice : MonoBehaviour
 
     private IEnumerator RollCoroutine(Stopwatch stopwatch)
     {
-        float timeBetween = rollTime;
+        float timeBetween = rollTime / 2;
         for (int i = 0; i < rollTime * rollsPerSecond; i++)
         {
             Value = Random.Range(1, 7);

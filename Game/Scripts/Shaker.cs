@@ -36,5 +36,7 @@ class ShakeMono : MonoBehaviour
         
         obj.transform.position = startPos;
         onEnd();
+        
+        Destroy(gameObject);
     }
 }
