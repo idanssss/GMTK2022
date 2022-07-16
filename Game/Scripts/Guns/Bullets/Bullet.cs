@@ -7,6 +7,8 @@ public class Bullet : MonoBehaviour
     private Rigidbody2D rb;
     private GunProperties gun;
 
+    [SerializeField] private float rotationOffset;
+
     public bool Shot { get; private set; }
     public bool visible;
     
@@ -24,6 +26,10 @@ public class Bullet : MonoBehaviour
 
         this.gun = gun;
         rb.velocity = dir.normalized * gun.BulletSpeed;
+        
+        float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg; 
+        transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle + rotationOffset));
+        
         Destroy(gameObject, 10f);
     }
 
