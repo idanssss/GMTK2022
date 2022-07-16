@@ -7,12 +7,12 @@ using TMPro;
 public class Tile : MonoBehaviour
 {
     public Dictionary<int, Color> dieColors = new Dictionary<int, Color>() {
-        { 1, Color.red },
-        { 2, Color.green },
-        { 3, Color.blue },
-        { 4, Color.yellow },
-        { 5, Color.magenta },
-        { 6, Color.cyan }
+        { 1, Color.black },
+        { 2, Color.black },
+        { 3, Color.black },
+        { 4, Color.black },
+        { 5, Color.black },
+        { 6, Color.black }
     }; 
 
     public int AssociatedNumber { get; private set; }
