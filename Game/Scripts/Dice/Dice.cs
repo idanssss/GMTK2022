@@ -24,16 +24,21 @@ public class Dice : MonoBehaviour
     private IEnumerator RollCoroutine(Stopwatch stopwatch)
     {
         float timeBetween = rollTime / 2;
+        int random = Random.Range(1, 7);
         for (int i = 0; i < rollTime * rollsPerSecond; i++)
         {
-            Value = Random.Range(1, 7);
-            text.text = Value.ToString();
+            int newRand = Random.Range(1, 7);
+            while (newRand == random)
+                newRand = Random.Range(1, 7);
+            
+            random = newRand;
+
+            text.text = random.ToString();
 
             timeBetween = Mathf.Lerp(timeBetween, 0.1f, 0.5f);
             yield return new WaitForSeconds(timeBetween);
         }
         
-        int random = Random.Range(1, 7);
         while (tm.dropped.Contains(random))
             random = Random.Range(1, 7);
         
