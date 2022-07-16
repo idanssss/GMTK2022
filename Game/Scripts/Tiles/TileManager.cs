@@ -12,6 +12,8 @@ public class TileManager : MonoBehaviour
     [SerializeField]
     private GameObject tilePrefab;
 
+    [SerializeField] private float shakeDuration = 1.5f, shakeStrength = 1f;
+    
     public int[] dropped = new int[6];
     
     public static Tile[,] tiles;
@@ -82,7 +84,7 @@ public class TileManager : MonoBehaviour
         foreach (var tile in tiles)
         {
             if (tile.AssociatedNumber == number)
-                tile.Drop();
+                tile.Drop(shakeDuration, shakeStrength);
         }
 
         for (int i = 0; i < dropped.Length; i++)
