@@ -34,7 +34,8 @@ public class PlayerInput : MonoBehaviour
         _movement.Move(horizontal, vertical);
 
         Vector2 mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
-        gun.LookAt(mousePos);
+        gun.SetTarget(mousePos);
+
         if(Input.GetMouseButtonDown(0))
             gun.Shoot();
     }
