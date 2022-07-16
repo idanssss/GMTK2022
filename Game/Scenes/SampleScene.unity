@@ -336,6 +336,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 380415130195eb44f907cf1baa33e3fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gunProps: {fileID: 11400000, guid: 0bd15f0418f744016b3e5ebc62e8fce7, type: 2}
 --- !u!1 &1640446821
 GameObject:
   m_ObjectHideFlags: 0
@@ -347,6 +348,8 @@ GameObject:
   - component: {fileID: 1640446823}
   - component: {fileID: 1640446822}
   - component: {fileID: 1640446824}
+  - component: {fileID: 1640446825}
+  - component: {fileID: 1640446826}
   m_Layer: 0
   m_Name: Square (1)
   m_TagString: Untagged
@@ -447,6 +450,31 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &1640446825
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1640446821}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0769b2b06d94404aea808afb3b2b507, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startHealth: 100
+--- !u!114 &1640446826
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1640446821}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2681b845b5144fec8daf9bb9a613dff6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1947739904
 GameObject:
   m_ObjectHideFlags: 0

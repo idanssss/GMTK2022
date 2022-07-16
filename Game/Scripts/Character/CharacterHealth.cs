@@ -1,33 +1,40 @@
 using UnityEngine;
+using Action = System.Action;
+using Assert = UnityEngine.Assertions.Assert;
 
-public class CharacterHealth : MonoBehaviour, IDamageable
+public class CharacterHealth : MonoBehaviour
 {
     private float _health;
-    private bool _dead;
-
-    bool IDamageable.Dead
-    {
-        get => _dead;
-        set => _dead = value;
-    }
-    float IDamageable.Health
+    public float Health
     {
         get => _health;
-        set => _health = value;
+        private set
+        {
+            value = value < 0 ? 0 : value;
+            if (Mathf.Abs(_health - value) < 0.0001f) return;
+            
+            _health = value;
+            OnGetHit?.Invoke();
+
+            if (value == 0)
+                OnDeath?.Invoke();
+        }
     }
-    
-    public event System.Action OnDeath;
+
+    [SerializeField] private float startHealth = 100f;
+
+    private void Awake()
+    {
+        Assert.IsTrue(startHealth > 0, "Start health must be greater than 0");
+        _health = startHealth;
+    }
+
+    public event Action OnDeath;
+    public event Action OnGetHit;
 
     public void Hit(float damage)
     {
-        float newHealth = _health - damage;
-        if (newHealth <= 0)
-        {
-            _dead = true;
-            _health = 0;
-            OnDeath?.Invoke();
-        }
-        else
-            _health = newHealth;
+        Debug.Log("Got hit!", gameObject);
+        Health -= damage;
     }
 }

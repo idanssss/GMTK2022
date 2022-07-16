@@ -1,4 +1,6 @@
 using UnityEngine;
+using System.Collections;
+using System.Collections.Generic;
 using Assert = UnityEngine.Assertions.Assert;
 
 public class Gun : MonoBehaviour
@@ -6,12 +8,12 @@ public class Gun : MonoBehaviour
     public Vector2 Target { get; private set; }
     [SerializeField] private GunProperties gunProps;
 
-    public int nBulletsLoaded;
+    private int nBulletsLoaded;
+    private bool canShoot = true;
 
     private void Awake()
     {
         Assert.IsNotNull(gunProps, "Gun properties not set!");
-
         nBulletsLoaded = gunProps.MaxAmmo;
     }
 
@@ -28,6 +30,12 @@ public class Gun : MonoBehaviour
 
     public void Shoot()
     {
+        if (!canShoot || nBulletsLoaded <= 0) return;
+        StartCoroutine(HitTarget(GetHit()));
+    }
+
+    private GameObject GetHit()
+    {
         Vector2 position = transform.position;
         Vector2 dir = (Target - position).normalized;;
         
@@ -40,10 +48,45 @@ public class Gun : MonoBehaviour
             var hitColl = hit.collider;
 
             if (hitColl == null || transform.IsChildOf(hitColl.transform)) continue;
-            
-            Debug.Log("Hit Object " + hitColl.transform.name);
-            break;
+            return hitColl.gameObject;
         }
+
+        return null;
+    }
+
+    private IEnumerator HitTarget(GameObject go)
+    {
+        nBulletsLoaded--;
+
+        canShoot = false;
+        StartCoroutine(CanShootCooldown());
+
+        CharacterHealth health;
+        if (!go || !(health = go.GetComponent<CharacterHealth>()))
+            yield break;
+
+        float distance = (go.transform.position - transform.position).magnitude;
+        yield return new WaitForSeconds(distance / gunProps.BulletSpeed);
+
+        health.Hit(gunProps.Damage);
+    }
+
+    private IEnumerator CanShootCooldown()
+    {
+        yield return new WaitForSeconds(gunProps.FireRate);
+        canShoot = true;
+    }
+
+    public void Reload()
+    {
+        if (nBulletsLoaded == gunProps.MaxAmmo) return;
+        StartCoroutine(ReloadCoroutine());
+    }
+    
+    private IEnumerator ReloadCoroutine()
+    {
+        yield return new WaitForSeconds(gunProps.ReloadTime);
+        nBulletsLoaded = gunProps.MaxAmmo;
     }
 
     public void SetTarget(Vector2 targetPos) => Target = targetPos;
