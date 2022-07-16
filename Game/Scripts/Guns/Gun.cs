@@ -1,11 +1,14 @@
 using UnityEngine;
 using System.Collections;
 using Assert = UnityEngine.Assertions.Assert;
+using TMPro;
 
 public class Gun : MonoBehaviour
 {
     public Vector2 Target { get; private set; }
     [SerializeField] private GunProperties gunProps;
+
+    public TextMeshProUGUI bulletCountText;
 
     private int nBulletsLoaded;
     private bool canShoot = true;
@@ -34,6 +37,7 @@ public class Gun : MonoBehaviour
         if (!canShoot || nBulletsLoaded <= 0 || reloading) return;
         
         nBulletsLoaded--;
+        bulletCountText.text = string.Concat(nBulletsLoaded);
         canShoot = false;
         StartCoroutine(CanShootCooldown());
         
@@ -46,6 +50,7 @@ public class Gun : MonoBehaviour
     private IEnumerator CanShootCooldown()
     {
         yield return new WaitForSeconds(gunProps.FireRate);
+        bulletCountText.text = string.Concat(nBulletsLoaded);
         canShoot = true;
     }
 
@@ -60,6 +65,7 @@ public class Gun : MonoBehaviour
         reloading = true;
         yield return new WaitForSeconds(gunProps.ReloadTime);
         nBulletsLoaded = gunProps.MaxAmmo;
+        bulletCountText.text = string.Concat(nBulletsLoaded);
         reloading = false;
     }
 

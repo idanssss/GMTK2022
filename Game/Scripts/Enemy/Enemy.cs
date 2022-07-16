@@ -12,7 +12,8 @@ public class Enemy : MonoBehaviour
     void Update()
     {
         UpdateTarget();
-        Move();
+        if(Random.Range(0,10) > 6)
+            Move();
     }
 
     void UpdateTarget()
