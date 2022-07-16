@@ -10,14 +10,15 @@ public class TileManager : MonoBehaviour
     private float space;
 
     [SerializeField]
-    private GameObject tilePrefab; 
+    private GameObject tilePrefab;
 
+    public int[] dropped = new int[6];
+    
     public static Tile[,] tiles;
 
     void Start()
     {
         Generate();
-        
         Assert.IsNotNull(tilePrefab, "Tile prefab is null!");
     }
 
@@ -83,5 +84,19 @@ public class TileManager : MonoBehaviour
             if (tile.AssociatedNumber == number)
                 tile.Drop();
         }
+
+        for (int i = 0; i < dropped.Length; i++)
+        {
+            if (dropped[i] != 0) continue;
+            
+            dropped[i] = number;
+            break;
+        }
+    }
+
+    public void ResetTiles()
+    {
+        Generate();
+        dropped = new int[6];
     }
 }
