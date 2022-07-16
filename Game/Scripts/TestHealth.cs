@@ -21,14 +21,14 @@ public class TestHealth : MonoBehaviour
         rend.color = Color.white;
     }
 
-    private void OnGetHit()
+    private void OnGetHit(GameObject _)
     {
         StartCoroutine(Hit());
     }
 
     private void OnDie()
     {
-        GetComponent<Entity>().dead = true;
+        gameObject.SetActive(false);
     }
 
     private IEnumerator Hit()

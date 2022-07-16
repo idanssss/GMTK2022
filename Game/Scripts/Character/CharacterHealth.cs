@@ -14,7 +14,6 @@ public class CharacterHealth : MonoBehaviour
             if (Mathf.Abs(_health - value) < 0.0001f) return;
             
             _health = value;
-            OnGetHit?.Invoke();
 
             if (value == 0)
                 OnDeath?.Invoke();
@@ -30,11 +29,14 @@ public class CharacterHealth : MonoBehaviour
     }
 
     public event Action OnDeath;
-    public event Action OnGetHit;
+    
+    public delegate void GetHitDel(GameObject go);
+    public event GetHitDel OnGetHit;
 
-    public void Hit(float damage)
+    public void Hit(float damage, GameObject go)
     {
         Debug.Log("Got hit!", gameObject);
         Health -= damage;
+        OnGetHit?.Invoke(go);
     }
 }
