@@ -82,6 +82,7 @@ public class TileManager : MonoBehaviour
             return;
         }
 
+        tiles ??= new Tile[width, height];
         foreach (var tile in tiles)
         {
             if (tile.AssociatedNumber == number)

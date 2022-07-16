@@ -15,9 +15,6 @@ public class Dice : MonoBehaviour
     
     public void Roll(Stopwatch stopwatch)
     {
-        if (tm.dropped[5] != 0)
-            tm.ResetTiles();
-
         StartCoroutine(RollCoroutine(stopwatch));
     }
 
@@ -48,5 +45,8 @@ public class Dice : MonoBehaviour
 
         stopwatch.ResetTime();
         stopwatch.count = true;
+        
+        if (tm.dropped[5] != 0)
+            tm.ResetTiles();
     }
 }

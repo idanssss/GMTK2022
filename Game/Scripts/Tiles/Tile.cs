@@ -46,8 +46,11 @@ public class Tile : MonoBehaviour
         {
             if (_exists == value) return;
 
-            Rend.enabled = value;
-            Text.enabled = value;
+            if (Rend)
+                Rend.enabled = value;
+            
+            if (Text)
+                Text.enabled = value;
             
             _exists = value;
         }

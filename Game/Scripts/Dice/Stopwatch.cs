@@ -23,7 +23,7 @@ public class Stopwatch : MonoBehaviour
 
         if (time <= 0)
         {
-            timerText.text = "0.00";
+            timerText.text = "";
             dice.Roll(this);
             count = false;
         }

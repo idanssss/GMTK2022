@@ -18,23 +18,47 @@ class ShakeMono : MonoBehaviour
 
     public IEnumerator ShakeCoroutine(GameObject obj, float duration, float strength, Action onEnd)
     {
+        if (!Application.isPlaying)
+        {
+            onEnd();
+            DestroyImmediate(gameObject);
+            yield break;
+        }
+
         float time = 0f;
         Vector2 startPos = obj.transform.position;
 
         while (time < duration)
         {
             Vector2 pos = obj.transform.position;
-            obj.transform.position = new Vector2(pos.x + Random.Range(-0.1f, 0.1f) * strength, pos.y + Random.Range(-0.1f, 0.1f) * strength);
+            try
+            {
+                obj.transform.position = new Vector2(pos.x + Random.Range(-0.1f, 0.1f) * strength,
+                    pos.y + Random.Range(-0.1f, 0.1f) * strength);
+            }
+            catch (MissingReferenceException)
+            {
+                break;
+            }
+
             float halfDelta = Time.deltaTime / 2;
             yield return new WaitForSeconds(halfDelta);
 
-            obj.transform.position = startPos;
+            try
+            {
+                obj.transform.position = startPos;
+            }
+            catch (MissingReferenceException)
+            {
+                break;
+            }
+
             yield return new WaitForSeconds(halfDelta);
-            
+
             time += Time.deltaTime;
         }
-        
-        obj.transform.position = startPos;
+
+        try { obj.transform.position = startPos; } catch (MissingReferenceException) { }
         onEnd();
         
         Destroy(gameObject);
