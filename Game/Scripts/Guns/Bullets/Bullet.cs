@@ -7,8 +7,11 @@ public class Bullet : MonoBehaviour
     private Rigidbody2D rb;
     private GunProperties gun;
     public bool Shot { get; private set; }
+    public bool visible;
 
     private void Awake() => rb = GetComponent<Rigidbody2D>();
+
+    private void OnEnable() => GetComponent<SpriteRenderer>().enabled = visible; 
 
     public void Shoot(Vector2 dir, GunProperties gun)
     {
