@@ -80,6 +80,10 @@ public class CharacterHealth : MonoBehaviour
                     OnDeath?.Invoke();
                     Debug.Log("asidsajidjkdasn");
                 }
+                else
+                {
+                    Destroy(gameObject);
+                }
             }
         }
     }
