@@ -104,6 +104,30 @@ public class TileManager : MonoBehaviour
             break;
         }
 
+        switch (number)
+        {
+            case 6:
+                AudioManager.instance.Play("Six");
+                break;
+            case 5:
+                AudioManager.instance.Play("Five");
+                break;
+            case 4:
+                AudioManager.instance.Play("Four");
+                break;
+            case 3:
+                AudioManager.instance.Play("Three");
+                break;
+            case 2:
+                AudioManager.instance.Play("Two");
+                break;
+            case 1:
+                AudioManager.instance.Play("One");
+                break;
+            default:
+                break;
+        }
+
         AudioManager.instance.Play("Rumble");
     }
 
