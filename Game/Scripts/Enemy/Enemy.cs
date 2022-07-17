@@ -76,12 +76,6 @@ public class Enemy : MonoBehaviour
 
     private void Move()
     {
-        // if (!isIntelligent)
-        // {
-        //     _movement.Move(0, 0);
-        //     return;
-        // }
-
         var hits = Physics2D.CircleCastAll(transform.position, .5f,
             Vector2.zero, 0f, tileMask);
 
