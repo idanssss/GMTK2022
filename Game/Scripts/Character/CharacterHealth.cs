@@ -73,12 +73,13 @@ public class CharacterHealth : MonoBehaviour
 
 
 
-            if (value == 0)
+            if (value <= 0)
             {
-                if(transform.name == "Player")
+                if (transform.name == "Player")
+                {
                     OnDeath?.Invoke();
-                else
-                    GetComponent<Entity>().dead = true;
+                    Debug.Log("asidsajidjkdasn");
+                }
             }
         }
     }

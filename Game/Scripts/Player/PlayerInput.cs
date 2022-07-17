@@ -49,6 +49,7 @@ public class PlayerInput : MonoBehaviour
 
     private void OnDeath()
     {
+        Debug.Log("kajsndasjndakjsndaskjnadskj  ");
         gun.enabled = false;
         canMove = false;
     }

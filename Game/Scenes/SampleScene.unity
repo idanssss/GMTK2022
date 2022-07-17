@@ -2473,6 +2473,15 @@ MonoBehaviour:
     volumeVariance: 0
     pitch: 1
     pitchVariance: 1
+    loop: 1
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: Reload
+    clip: {fileID: 8300000, guid: 01857e9646e535445a5a218526ea6403, type: 3}
+    volume: 1
+    volumeVariance: 0
+    pitch: 1
+    pitchVariance: 1
     loop: 0
     mixerGroup: {fileID: 0}
     source: {fileID: 0}
