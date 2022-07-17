@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5042748208516795546}
   - component: {fileID: 7586104541811579463}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: Number
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 3369210619583477396}
   - component: {fileID: 3369210619583477398}
   - component: {fileID: 520166913618294596}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: Tile
   m_TagString: Tile
   m_Icon: {fileID: 0}
@@ -219,7 +219,7 @@ GameObject:
   - component: {fileID: 8996391639401099582}
   - component: {fileID: 8209523559885911916}
   - component: {fileID: 7734046535690307234}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Death
   m_TagString: Death
   m_Icon: {fileID: 0}
