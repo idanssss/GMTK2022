@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 0b785452a8a314d419bb860d4fd5b625
+guid: b653064817a234463b815cce478a97af
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 0
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 12
+  spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -78,41 +78,17 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: Standalone
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 0
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: Server
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 0
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Dice
+      name: Stopwatch
       rect:
         serializedVersion: 2
         x: 1
         y: 1
-        width: 16
-        height: 16
+        width: 32
+        height: 32
       alignment: 9
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -120,20 +96,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 107ed3f7816707ff0800000000000000
-      internalID: -40402549060278527
+      spriteID: b9a59f4373e0d2430800000000000000
+      internalID: 3759676894198979227
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Dice_1
+      name: Stopwatch_1
       rect:
         serializedVersion: 2
-        x: 19
+        x: 35
         y: 1
-        width: 16
-        height: 16
+        width: 32
+        height: 32
       alignment: 9
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,20 +117,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 2b37effb9d187c4b0800000000000000
-      internalID: -5420220854288092238
+      spriteID: 0cdb2d36de8812480800000000000000
+      internalID: -8925702433308230208
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Dice_2
+      name: Stopwatch_2
       rect:
         serializedVersion: 2
-        x: 37
+        x: 69
         y: 1
-        width: 16
-        height: 16
+        width: 32
+        height: 32
       alignment: 9
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -162,20 +138,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 9119730c3e5ee2f00800000000000000
-      internalID: 1094064525842813209
+      spriteID: 2f9447315f1624560800000000000000
+      internalID: 7296502051514894834
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Dice_3
+      name: Stopwatch_3
       rect:
         serializedVersion: 2
-        x: 55
+        x: 103
         y: 1
-        width: 16
-        height: 16
+        width: 32
+        height: 32
       alignment: 9
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -183,20 +159,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 2785eda6183ab1e60800000000000000
-      internalID: 7934114944782325874
+      spriteID: dcd5e085fc171b970800000000000000
+      internalID: 8768915084816571853
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Dice_4
+      name: Stopwatch_4
       rect:
         serializedVersion: 2
-        x: 73
+        x: 137
         y: 1
-        width: 16
-        height: 16
+        width: 32
+        height: 32
       alignment: 9
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -204,20 +180,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e1d341feab479c3f0800000000000000
-      internalID: -880043905950401250
+      spriteID: 58dfc1d96899a5a20800000000000000
+      internalID: 3051920500937522565
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Dice_5
+      name: Stopwatch_5
       rect:
         serializedVersion: 2
-        x: 91
+        x: 171
         y: 1
-        width: 16
-        height: 16
+        width: 32
+        height: 32
       alignment: 9
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -225,20 +201,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 0d05c21d96a69f3b0800000000000000
-      internalID: -5478230469006044976
+      spriteID: 1eb286fc323c922b0800000000000000
+      internalID: -5608737302342259743
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Dice_6
+      name: Stopwatch_6
       rect:
         serializedVersion: 2
-        x: 109
+        x: 205
         y: 1
-        width: 16
-        height: 16
+        width: 32
+        height: 32
       alignment: 9
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -246,20 +222,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: fe9daab7f3ef5c260800000000000000
-      internalID: 7117374334740126191
+      spriteID: 21955134afc8667c0800000000000000
+      internalID: -4078417406042220270
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Dice_7
+      name: Stopwatch_7
       rect:
         serializedVersion: 2
         x: 1
-        y: 19
-        width: 16
-        height: 16
+        y: 35
+        width: 32
+        height: 32
       alignment: 9
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -267,20 +243,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 82cb8dd9de60a07a0800000000000000
-      internalID: -6410303501983237080
+      spriteID: 22ba56ccca957c360800000000000000
+      internalID: 7189813928818748194
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Dice_8
+      name: Stopwatch_8
       rect:
         serializedVersion: 2
-        x: 19
-        y: 19
-        width: 16
-        height: 16
+        x: 35
+        y: 35
+        width: 32
+        height: 32
       alignment: 9
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -288,20 +264,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 08bd01c51854d3090800000000000000
-      internalID: -8053204136770872448
+      spriteID: 8f4d59c29eeaab0f0800000000000000
+      internalID: -1100374842440035080
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Dice_9
+      name: Stopwatch_9
       rect:
         serializedVersion: 2
-        x: 37
-        y: 19
-        width: 16
-        height: 16
+        x: 69
+        y: 35
+        width: 32
+        height: 32
       alignment: 9
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -309,20 +285,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e47eddd2eb4f49ec0800000000000000
-      internalID: -3560952307692738738
+      spriteID: fefe6171cb34216f0800000000000000
+      internalID: -715434915678195729
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Dice_10
+      name: Stopwatch_10
       rect:
         serializedVersion: 2
-        x: 55
-        y: 19
-        width: 16
-        height: 16
+        x: 103
+        y: 35
+        width: 32
+        height: 32
       alignment: 9
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -330,20 +306,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c61d8b8e0b18ab3a0800000000000000
-      internalID: -6648859303040462484
+      spriteID: 29fe8c12e54b3c430800000000000000
+      internalID: 3802080826817572754
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Dice_11
+      name: Stopwatch_11
       rect:
         serializedVersion: 2
-        x: 73
-        y: 19
-        width: 16
-        height: 16
+        x: 137
+        y: 35
+        width: 32
+        height: 32
       alignment: 9
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -351,20 +327,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: de82914d091fd8d20800000000000000
-      internalID: 3282545307758962925
+      spriteID: a6c2dddd69d63f1e0800000000000000
+      internalID: -2165266501100295062
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Dice_12
+      name: Stopwatch_12
       rect:
         serializedVersion: 2
-        x: 91
-        y: 19
-        width: 16
-        height: 16
+        x: 171
+        y: 35
+        width: 32
+        height: 32
       alignment: 9
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -372,29 +348,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 315dbb016b68eb070800000000000000
-      internalID: 8124078894345868563
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Dice_13
-      rect:
-        serializedVersion: 2
-        x: 109
-        y: 19
-        width: 16
-        height: 16
-      alignment: 9
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 4f2b3afa770a413f0800000000000000
-      internalID: -930942787050556684
+      spriteID: 6a17080a59b1927d0800000000000000
+      internalID: -2942790552053059162
       vertices: []
       indices: 
       edges: []
@@ -410,20 +365,19 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Dice_1: -5420220854288092238
-      Dice_3: 7934114944782325874
-      Dice_11: 3282545307758962925
-      Dice_13: -930942787050556684
-      Dice: -40402549060278527
-      Dice_9: -3560952307692738738
-      Dice_2: 1094064525842813209
-      Dice_12: 8124078894345868563
-      Dice_7: -6410303501983237080
-      Dice_8: -8053204136770872448
-      Dice_6: 7117374334740126191
-      Dice_4: -880043905950401250
-      Dice_10: -6648859303040462484
-      Dice_5: -5478230469006044976
+      Stopwatch_4: 3051920500937522565
+      Stopwatch_5: -5608737302342259743
+      Stopwatch: 3759676894198979227
+      Stopwatch_9: -715434915678195729
+      Stopwatch_8: -1100374842440035080
+      Stopwatch_11: -2165266501100295062
+      Stopwatch_10: 3802080826817572754
+      Stopwatch_2: 7296502051514894834
+      Stopwatch_12: -2942790552053059162
+      Stopwatch_3: 8768915084816571853
+      Stopwatch_1: -8925702433308230208
+      Stopwatch_7: 7189813928818748194
+      Stopwatch_6: -4078417406042220270
   spritePackingTag: 
   pSDRemoveMatte: 0
   userData: 
