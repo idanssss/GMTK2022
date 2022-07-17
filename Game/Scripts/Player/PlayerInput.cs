@@ -1,4 +1,5 @@
 using UnityEngine;
+using TMPro;
 using Assert = UnityEngine.Assertions.Assert;
 
 [RequireComponent(typeof(CharacterMovement))]
@@ -8,7 +9,13 @@ public class PlayerInput : MonoBehaviour
     public static PlayerInput Player;
     
     private Camera cam;
-    
+
+    [HideInInspector]
+    public int Score;
+
+    [SerializeField]
+    private TextMeshPro scoreCounterText;
+
     private CharacterMovement _movement;
     private CharacterHealth _health;
     
@@ -46,6 +53,7 @@ public class PlayerInput : MonoBehaviour
     private bool canMove = true;
     private void Update()
     {
+        scoreCounterText.text = "" + Score;
         var horizontal = canMove ? Input.GetAxisRaw("Horizontal") : 0;
         var vertical = canMove ? Input.GetAxisRaw("Vertical") : 0;
         

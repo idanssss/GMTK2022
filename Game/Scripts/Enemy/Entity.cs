@@ -16,6 +16,8 @@ public class Entity : MonoBehaviour
     {
         if(dead)
         {
+            Instantiate(Resources.Load("Enemy") as GameObject, new Vector2(Random.Range(-6, 6),  Random.Range(-3, 3)), Quaternion.identity);
+            GameObject.Find("Player").GetComponent<PlayerInput>().Score += GlobalManager.ScorePerEnemy;
             AllEntities.Remove(this);
             Destroy(gameObject);
         }
