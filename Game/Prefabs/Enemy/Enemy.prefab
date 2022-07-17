@@ -165,6 +165,9 @@ MonoBehaviour:
   moveSpeed: 4
   accelerationRate: 0.5
   decelerationRate: 0.25
+  spinSpeedOnDeath: 15
+  shrinkSpeedOnDeath: 0.025
+  canMove: 1
 --- !u!114 &4204972608731270639
 MonoBehaviour:
   m_ObjectHideFlags: 0

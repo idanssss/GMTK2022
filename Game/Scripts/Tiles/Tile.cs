@@ -7,6 +7,8 @@ public class Tile : MonoBehaviour
 {
     public int AssociatedNumber { get; private set; }
 
+    [SerializeField] private BoxCollider2D death;
+    
     [SerializeField]
     private SpriteRenderer numberRend;
 
@@ -41,14 +43,19 @@ public class Tile : MonoBehaviour
             
             if (numberRend)
                 numberRend.enabled = value;
-            
-            
-            
+
+            if (death)
+                death.enabled = !value;
+
             _exists = value;
         }
     }
 
-    private void Awake() {  Rend.color = Color.white; }
+    private void Awake()
+    {
+        Rend.color = Color.white;
+        death.enabled = false;
+    }
 
     public void UpdateUI() => numberRend.sprite = Numbers.GetSprite(AssociatedNumber);
 

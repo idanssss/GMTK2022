@@ -43,13 +43,10 @@ public class Bullet : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D col)
     {
-        if(col.gameObject != shotBy)
-        {
-            CharacterHealth health;
-            if (!(health = col.gameObject.GetComponent<CharacterHealth>())) return;
-            
-            health.Hit(gun.Damage, gameObject);
-            Destroy(gameObject);
-        }
+        if (col.gameObject == shotBy || col.CompareTag("Tile") || col.CompareTag("Death")) return;
+        
+        CharacterHealth health = col.gameObject.GetComponent<CharacterHealth>();
+        if (health) health.Hit(gun.Damage, gameObject);
+        Destroy(gameObject);
     }
 }

@@ -30,7 +30,9 @@ class ShakeMono : MonoBehaviour
 
         while (time < duration)
         {
-            Vector2 pos = obj.transform.position;
+            var pos = Vector2.zero;
+            try { pos = obj.transform.position; } catch { break; }
+            
             try
             {
                 obj.transform.position = new Vector2(pos.x + Random.Range(-0.1f, 0.1f) * strength,

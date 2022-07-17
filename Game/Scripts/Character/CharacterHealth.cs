@@ -35,7 +35,6 @@ public class CharacterHealth : MonoBehaviour
 
     public void Hit(float damage, GameObject go)
     {
-        Debug.Log("Got hit!", gameObject);
         Health -= damage;
         OnGetHit?.Invoke(go);
     }

@@ -55,7 +55,6 @@ public class Enemy : MonoBehaviour
         Bullet bullet;
         if (!(bullet = go.GetComponent<Bullet>())) return;
         
-        Debug.Log("Enemy got hit by " + bullet.shotBy.name);
         _movement.Move(bullet.Dir * bullet.Properties.BulletSpeed);
 
         lastHit = 0f;

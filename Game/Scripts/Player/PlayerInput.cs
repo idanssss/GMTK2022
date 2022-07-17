@@ -10,6 +10,7 @@ public class PlayerInput : MonoBehaviour
     private Camera cam;
     
     private CharacterMovement _movement;
+    private CharacterHealth _health;
     
     [SerializeField]
     private Transform gunObj;
@@ -32,12 +33,21 @@ public class PlayerInput : MonoBehaviour
         
         gun = gunObj.GetComponent<Gun>();
         Assert.IsNotNull(gun, "No gun component attached to gun object");
+        
+        _movement.OnDeath += OnDeath;
     }
 
+    private void OnDeath()
+    {
+        gun.enabled = false;
+        canMove = false;
+    }
+
+    private bool canMove = true;
     private void Update()
     {
-        var horizontal = Input.GetAxisRaw("Horizontal");
-        var vertical = Input.GetAxisRaw("Vertical");
+        var horizontal = canMove ? Input.GetAxisRaw("Horizontal") : 0;
+        var vertical = canMove ? Input.GetAxisRaw("Vertical") : 0;
         
         _movement.Move(horizontal, vertical);
 
