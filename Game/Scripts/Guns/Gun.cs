@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using TMPro;
 using Assert = UnityEngine.Assertions.Assert;
 
 public class Gun : MonoBehaviour
@@ -7,6 +8,8 @@ public class Gun : MonoBehaviour
     public Vector2 Target { get; private set; }
     [SerializeField] private GunProperties gunProps;
 
+    [SerializeField] private TextMeshPro bulletCountText;
+    
     private int nBulletsLoaded;
     private bool canShoot = true;
     private bool reloading;
@@ -47,6 +50,8 @@ public class Gun : MonoBehaviour
         bullet.shotBy = gameObject;
         bullet.Shoot(Target - (Vector2)transform.position, gunProps);
         
+        if (bulletCountText)
+            bulletCountText.text = nBulletsLoaded.ToString();
         OnGunShootEvent?.Invoke(bullet.Dir);
     }
 

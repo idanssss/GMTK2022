@@ -15,6 +15,8 @@ public class Enemy : MonoBehaviour
     private CharacterMovement _movement;
     private CharacterHealth _health;
 
+    private LayerMask tileMask;
+
 
     private void Awake()
     {
@@ -23,6 +25,9 @@ public class Enemy : MonoBehaviour
         
         _health.OnGetHit += OnGetHit;
         _health.OnDeath += OnDeath;
+
+        isIntelligent = Random.Range(0, 100) < 50;
+        tileMask = LayerMask.GetMask("Tile");
     }
 
     private void OnDeath() => Destroy(gameObject);
@@ -32,15 +37,18 @@ public class Enemy : MonoBehaviour
     {
         UpdateTarget();
         if (lastHit < hitCooldown) { lastHit += Time.fixedTime; return; }
-        
-        _movement.Move(0, 0);
     }
 
     
-    private void Update() => HandleShooting();
+    private void Update()
+    {
+        HandleShooting();
+        Move();
+    }
 
     private float shootTimer;
-
+    private bool isIntelligent;
+    
     private void HandleShooting()
     {
         shootTimer += Time.deltaTime;
@@ -61,4 +69,30 @@ public class Enemy : MonoBehaviour
     }
 
     private void UpdateTarget() => gun.SetTarget(PlayerInput.Player.transform.position);
+    
+    private void Move()
+    {
+        // if (!isIntelligent)
+        // {
+        //     _movement.Move(0, 0);
+        //     return;
+        // }
+
+        var hits = Physics2D.CircleCastAll(transform.position, .5f,
+            Vector2.zero, 0f, tileMask);
+
+        if (hits.Length == 0)
+        {
+            _movement.Move(0, 0);
+            return;
+        }
+        
+        foreach (var hit in hits)
+        {
+            Tile tile = hit.collider.GetComponent<Tile>();
+            if (!tile || !tile.Shaking || tile.Exists) continue;
+            
+            _movement.Move(transform.position - tile.transform.position);
+        }
+    }
 }
