@@ -1,3 +1,4 @@
+using System.Linq;
 using UnityEngine;
 using UnityEngine.Assertions;
 
@@ -110,5 +111,21 @@ public class TileManager : MonoBehaviour
     {
         Generate();
         dropped = new int[6];
+    }
+
+    public Vector2 GetRandomTile()
+    {
+        // Get random die number
+        int number = Random.Range(1, 7);
+        
+        while (dropped.Contains(number))
+            number = Random.Range(1, 7);
+
+        foreach (var t in tiles)
+        {
+            if (t.AssociatedNumber == number) return t.transform.position;
+        }
+
+        return Vector2.zero;
     }
 }

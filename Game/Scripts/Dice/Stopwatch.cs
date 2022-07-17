@@ -5,8 +5,8 @@ using UnityEngine;
 public class Stopwatch : MonoBehaviour
 {
     [SerializeField] private Dice dice;
-    [SerializeField] private float time;
-    [SerializeField] private float timeToStart;
+    [SerializeField] public float time;
+    [SerializeField] public float timeToStart;
     [SerializeField] private SpriteRenderer rend;
     [SerializeField] private List<Sprite> states = new List<Sprite>();
 

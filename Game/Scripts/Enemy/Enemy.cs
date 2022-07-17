@@ -84,6 +84,15 @@ public class Enemy : MonoBehaviour
             return;
         }
         
+        foreach (var hit in hits)
+        {
+            Tile tile = hit.collider.GetComponent<Tile>();
+            if (!tile || !tile.Shaking || tile.Exists) continue;
+            
+            _movement.Move(transform.position - tile.transform.position);
+        }
+
+        if (!PlayerInput.Player) return;
         var distToPlayer = Vector2.Distance(transform.position, PlayerInput.Player.transform.position);
         if (distToPlayer < 2f)
         {
@@ -92,14 +101,6 @@ public class Enemy : MonoBehaviour
         else
         {
             shootCooldown = 1.5f;
-        }
-        
-        foreach (var hit in hits)
-        {
-            Tile tile = hit.collider.GetComponent<Tile>();
-            if (!tile || !tile.Shaking || tile.Exists) continue;
-            
-            _movement.Move(transform.position - tile.transform.position);
         }
     }
 }

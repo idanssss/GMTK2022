@@ -102,7 +102,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0769b2b06d94404aea808afb3b2b507, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startHealth: 50
+  gameOverMenu: {fileID: 0}
+  startHealth: 100
 --- !u!50 &4204972608731270633
 Rigidbody2D:
   serializedVersion: 4
@@ -170,6 +171,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gunProps: {fileID: 11400000, guid: 67d6f65a8ffbc40e79ecd1290d76f146, type: 2}
+  bulletCountText: {fileID: 0}
   rotationOffset: -90
 --- !u!58 &6331417235455036943
 CircleCollider2D:

@@ -12,8 +12,6 @@ public class EnemyWaveManagerEditor : Editor
 
     public override void OnInspectorGUI()
     {
-        if (GUILayout.Button("Summon Next Wave!"))
-            wm.SummonNextWave();  
         GUILayout.Space(10f); 
         DrawDefaultInspector();
     }

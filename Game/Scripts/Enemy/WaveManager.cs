@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,24 +6,48 @@ using UnityEngine;
 public class WaveManager : MonoBehaviour
 {
     [SerializeField]
-    AnimationCurve enemyByPhase;
-    public GameObject EnemyPrefab;
+    public GameObject enemyPrefab;
+
+    public Stopwatch sw;
     public TileManager tm;
 
-    int phase;
+    public int enemiesPerRound = 2;
+    public int roundNumber = 0;
 
-    void Start()
+    public List<GameObject> enemies = new List<GameObject>();
+
+    private void FixedUpdate()
     {
-        tm.OnNewBoard += SummonNextWave;
-        SummonNextWave();
+        foreach (var e in enemies)
+        {
+            if (e != null) return;
+        }
+
+        roundNumber++;
+        if (roundNumber % 10 == 0 && enemiesPerRound < 7)
+        {
+            enemiesPerRound++;
+            sw.time -= 0.5f;
+        }
+
+        SpawnWave();
     }
 
-    public void SummonNextWave()
+    private void SpawnWave()
     {
-        for(int i = 0; i < Mathf.RoundToInt(enemyByPhase.Evaluate(phase+1)); i++)
+        enemies.Clear();
+        
+        // loop on nuber of enemies
+        for (int i = 0; i < enemiesPerRound; i++)
         {
-            Instantiate(EnemyPrefab, new Vector2(Random.Range(-4, 4), Random.Range(-2, 3)), Quaternion.identity);
+            // spawn enemy
+            SpawnEnemy();
         }
-        phase++;
+    }
+
+    private void SpawnEnemy()
+    {
+        GameObject enemy = Instantiate(enemyPrefab, tm.GetRandomTile(), Quaternion.identity);
+        enemies.Add(enemy);
     }
 }
