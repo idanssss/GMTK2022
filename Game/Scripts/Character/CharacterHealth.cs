@@ -1,12 +1,10 @@
 using UnityEngine;
-using UnityEngine.UI;
 using Action = System.Action;
 using Assert = UnityEngine.Assertions.Assert;
 
 public class CharacterHealth : MonoBehaviour
 {
     public GameObject gameOverMenu;
-    public Slider HPslider;
 
     private float _health;
     public float Health
@@ -19,14 +17,10 @@ public class CharacterHealth : MonoBehaviour
             
             _health = value;
 
-
-
             if (value == 0)
             {
                 if(transform.name == "Player")
                     OnDeath?.Invoke();
-                else
-                    GetComponent<Entity>().dead = true;
             }
         }
     }
@@ -49,8 +43,6 @@ public class CharacterHealth : MonoBehaviour
     {
         Health -= damage;
         OnGetHit?.Invoke(go);
-        if(transform.name == "Player")
-            HPslider.value = 100 / 100 / (startHealth / _health);
     }
 
     private void GameOver()
