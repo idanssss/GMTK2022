@@ -53,6 +53,8 @@ public class Gun : MonoBehaviour
         if (bulletCountText)
             bulletCountText.text = nBulletsLoaded.ToString();
         OnGunShootEvent?.Invoke(bullet.Dir);
+
+        AudioManager.instance.Play("Shoot");
     }
 
     private IEnumerator CanShootCooldown()

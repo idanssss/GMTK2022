@@ -57,7 +57,9 @@ public class TileManager : MonoBehaviour
                 tile.UpdateUI();
             }
         }
-        
+
+        AudioManager.instance.Play("TileAppear");
+
         OnNewBoard?.Invoke();
     }
 
@@ -100,6 +102,8 @@ public class TileManager : MonoBehaviour
             dropped[i] = number;
             break;
         }
+
+        AudioManager.instance.Play("Rumble");
     }
 
     public void ResetTiles()

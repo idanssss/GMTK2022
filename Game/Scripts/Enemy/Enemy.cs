@@ -25,8 +25,7 @@ public class Enemy : MonoBehaviour
         
         _health.OnGetHit += OnGetHit;
         _health.OnDeath += OnDeath;
-
-        isIntelligent = Random.Range(0, 100) < 50;
+        
         tileMask = LayerMask.GetMask("Tile");
     }
 
@@ -47,8 +46,7 @@ public class Enemy : MonoBehaviour
     }
 
     private float shootTimer;
-    private bool isIntelligent;
-    
+
     private void HandleShooting()
     {
         shootTimer += Time.deltaTime;
@@ -79,10 +77,21 @@ public class Enemy : MonoBehaviour
         var hits = Physics2D.CircleCastAll(transform.position, .5f,
             Vector2.zero, 0f, tileMask);
 
-        if (hits.Length == 0)
+        _movement.Move(Random.Range(-1f, 1f), Random.Range(-1f, 1f));
+        if (hits.Length == 0 && lastHit > hitCooldown)
         {
-            _movement.Move(0, 0);
+            
             return;
+        }
+        
+        var distToPlayer = Vector2.Distance(transform.position, PlayerInput.Player.transform.position);
+        if (distToPlayer < 2f)
+        {
+            shootCooldown = 0.5f;
+        }
+        else
+        {
+            shootCooldown = 1.5f;
         }
         
         foreach (var hit in hits)

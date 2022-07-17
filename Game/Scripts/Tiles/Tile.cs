@@ -48,6 +48,11 @@ public class Tile : MonoBehaviour
                 death.enabled = !value;
 
             _exists = value;
+
+            if (!_exists)
+            {
+                AudioManager.instance.Play("TileDestroy");
+            }
         }
     }
 

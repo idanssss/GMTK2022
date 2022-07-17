@@ -20,6 +20,7 @@ public class Dice : MonoBehaviour
     public void Roll(Stopwatch stopwatch)
     {
         StartCoroutine(RollCoroutine(stopwatch));
+        AudioManager.instance.Play("DiceRoll");
     }
 
     private IEnumerator RollCoroutine(Stopwatch stopwatch)
