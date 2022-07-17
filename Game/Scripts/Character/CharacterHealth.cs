@@ -4,6 +4,8 @@ using Assert = UnityEngine.Assertions.Assert;
 
 public class CharacterHealth : MonoBehaviour
 {
+    public GameObject gameOverMenu;
+
     private float _health;
     public float Health
     {
@@ -31,6 +33,7 @@ public class CharacterHealth : MonoBehaviour
     {
         Assert.IsTrue(startHealth > 0, "Start health must be greater than 0");
         _health = startHealth;
+        OnDeath += GameOver;
     }
 
     public event Action OnDeath;
@@ -42,5 +45,10 @@ public class CharacterHealth : MonoBehaviour
     {
         Health -= damage;
         OnGetHit?.Invoke(go);
+    }
+
+    private void GameOver()
+    {
+        gameOverMenu.SetActive(true);
     }
 }

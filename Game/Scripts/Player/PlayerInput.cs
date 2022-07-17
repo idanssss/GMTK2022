@@ -13,6 +13,9 @@ public class PlayerInput : MonoBehaviour
     [HideInInspector]
     public int Score;
 
+    public GameObject PauseMenu;
+    public GameObject GOMenu;
+
     [SerializeField]
     private TextMeshPro scoreCounterText;
 
@@ -52,7 +55,9 @@ public class PlayerInput : MonoBehaviour
 
     private bool canMove = true;
     private void Update()
-    {
+    { 
+        if(transform.gameObject == null)
+            GOMenu.SetActive(true);
         scoreCounterText.text = "" + Score;
         var horizontal = canMove ? Input.GetAxisRaw("Horizontal") : 0;
         var vertical = canMove ? Input.GetAxisRaw("Vertical") : 0;
@@ -67,5 +72,10 @@ public class PlayerInput : MonoBehaviour
         
         if (Input.GetKeyDown(KeyCode.R) && canMove)
             gun.Reload();
+
+        if(Input.GetKeyDown(KeyCode.Escape))
+        {
+            Time.timeScale = 0; PauseMenu.SetActive(true);
+        }
     }
 }
