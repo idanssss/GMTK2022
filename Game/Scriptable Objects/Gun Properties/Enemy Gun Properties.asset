@@ -15,6 +15,6 @@ MonoBehaviour:
   damage: 20
   fireRate: 0.5
   reloadTime: 0.5
-  bulletSpeed: 10
+  bulletSpeed: 25
   maxAmmo: 50
   bulletPrefab: {fileID: 4554408069366336064, guid: a666596210b4749a08a71993c0bbf2ca, type: 3}
