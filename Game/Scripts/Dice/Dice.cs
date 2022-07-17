@@ -1,11 +1,15 @@
+using System;
 using System.Collections;
 using System.Linq;
 using TMPro;
+using UnityEditor;
 using UnityEngine;
+using UnityEngine.Assertions;
+using Random = UnityEngine.Random;
 
 public class Dice : MonoBehaviour
 {
-    [SerializeField] private TextMeshPro text;
+    [SerializeField] private SpriteRenderer rend;
     [SerializeField] private float rollTime = 2f;
     [SerializeField] private float rollsPerSecond = 4f;
 
@@ -29,8 +33,7 @@ public class Dice : MonoBehaviour
                 newRand = Random.Range(1, 7);
             
             random = newRand;
-
-            text.text = random.ToString();
+            rend.sprite = DiceExtensions.GetDice(random);
 
             timeBetween = Mathf.Lerp(timeBetween, 0.1f, 0.5f);
             yield return new WaitForSeconds(timeBetween);
@@ -40,7 +43,7 @@ public class Dice : MonoBehaviour
             random = Random.Range(1, 7);
         
         Value = random;
-        text.text = Value.ToString();
+        rend.sprite = DiceExtensions.GetDice(random);   
         tm.Drop(Value);
 
         stopwatch.ResetTime();
@@ -48,5 +51,22 @@ public class Dice : MonoBehaviour
         
         if (tm.dropped[5] != 0)
             tm.ResetTiles();
+    }
+}
+
+public static class DiceExtensions
+{
+    public const string root = "Assets/GMTK2022/Game/Sprites/Dice/Dice/Dice Prefab/Dice_";
+    
+    public static Sprite GetDice(int digit)
+    {
+        Assert.IsFalse(digit < 1 || digit > 6, "Digit out of bounds");
+        digit--;
+        
+        string name = root + digit + ".prefab";
+        var p = AssetDatabase.LoadAssetAtPath<GameObject>(name);
+        var sprite = p.GetComponent<SpriteRenderer>().sprite;
+        
+        return sprite;
     }
 }
