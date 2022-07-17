@@ -70,8 +70,10 @@ public class Gun : MonoBehaviour
     private IEnumerator ReloadCoroutine()
     {
         reloading = true;
+        AudioManager.instance.Play("Reload");
         yield return new WaitForSeconds(gunProps.ReloadTime);
         nBulletsLoaded = gunProps.MaxAmmo;
+        bulletCountText.text = nBulletsLoaded.ToString();
         reloading = false;
     }
 
