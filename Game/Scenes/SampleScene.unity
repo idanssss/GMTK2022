@@ -963,7 +963,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dice: {fileID: 1950807048}
   time: 0
-  timeToStart: 2
+  timeToStart: 4
   rend: {fileID: 576407259}
   states:
   - {fileID: -1100374842440035080, guid: b653064817a234463b815cce478a97af, type: 3}
@@ -1864,6 +1864,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
+  m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
@@ -4073,6 +4074,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 2
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 246888107834504737, guid: d4174e8f1f5524519870f059de79d11e, type: 3}
@@ -4148,4 +4150,5 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 873826492}
     m_RemovedComponents: []
+    m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: d4174e8f1f5524519870f059de79d11e, type: 3}
