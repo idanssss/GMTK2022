@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Stopwatch : MonoBehaviour
 {
-    [SerializeField] private TextMeshPro timerText;
     [SerializeField] private Dice dice;
     [SerializeField] private float time;
     [SerializeField] private float timeToStart;
@@ -22,17 +21,17 @@ public class Stopwatch : MonoBehaviour
         if (!count) return;
         
         time -= Time.deltaTime;
-        timerText.text = time.ToString("0.00");
+        // timerText.text = time.ToString("0.00");
 
         float eighth = timeToStart / 8;
         int state = (int)(time / eighth);
         
         rend.sprite = states[state];
-        Debug.Log(rend.sprite);
 
         if (time <= 0)
         {
-            timerText.text = "";
+            // timerText.text = "";
+            rend.sprite = states[7];
             dice.Roll(this);
             count = false;
         }

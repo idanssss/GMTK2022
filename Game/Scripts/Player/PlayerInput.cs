@@ -54,10 +54,10 @@ public class PlayerInput : MonoBehaviour
         Vector2 mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
         gun.SetTarget(mousePos);
 
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && canMove)
             gun.Shoot();
         
-        if (Input.GetKeyDown(KeyCode.R))
+        if (Input.GetKeyDown(KeyCode.R) && canMove)
             gun.Reload();
     }
 }
