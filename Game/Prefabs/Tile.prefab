@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5042748208516795546}
   - component: {fileID: 7586104541811579463}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Number
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -27,6 +27,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.75, y: 0.75, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3369210619583477399}
   m_RootOrder: 0
@@ -42,6 +43,7 @@ SpriteRenderer:
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -94,7 +96,7 @@ GameObject:
   - component: {fileID: 3369210619583477396}
   - component: {fileID: 3369210619583477398}
   - component: {fileID: 520166913618294596}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Tile
   m_TagString: Tile
   m_Icon: {fileID: 0}
@@ -111,6 +113,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1.25, y: 1.25, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5042748208516795546}
   - {fileID: 8996391639401099582}
@@ -128,6 +131,7 @@ SpriteRenderer:
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -219,7 +223,7 @@ GameObject:
   - component: {fileID: 8996391639401099582}
   - component: {fileID: 8209523559885911916}
   - component: {fileID: 7734046535690307234}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Death
   m_TagString: Death
   m_Icon: {fileID: 0}
@@ -236,6 +240,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3369210619583477399}
   m_RootOrder: 1

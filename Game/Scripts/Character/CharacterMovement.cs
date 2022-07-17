@@ -73,6 +73,8 @@ public class CharacterMovement : MonoBehaviour
 		    
 		    yield return null;
 	    }
+	    
+	    Destroy(gameObject);
     }
 
     private void UpdateVelocity()

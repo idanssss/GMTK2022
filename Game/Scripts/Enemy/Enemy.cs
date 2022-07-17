@@ -68,8 +68,12 @@ public class Enemy : MonoBehaviour
         lastHit = 0f;
     }
 
-    private void UpdateTarget() => gun.SetTarget(PlayerInput.Player.transform.position);
-    
+    private void UpdateTarget()
+    {
+        if (PlayerInput.Player == null) return;
+        gun.SetTarget(PlayerInput.Player.transform.position);
+    }
+
     private void Move()
     {
         // if (!isIntelligent)
