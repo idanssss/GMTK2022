@@ -42,6 +42,8 @@ public class Tile : MonoBehaviour
             if (numberRend)
                 numberRend.enabled = value;
             
+            
+            
             _exists = value;
         }
     }
@@ -53,7 +55,6 @@ public class Tile : MonoBehaviour
     public void SetAssociatedNumber(int number) => AssociatedNumber = number;
     public void Drop(float duration, float strength)
     {
-        // StartCoroutine(FlashCoroutine(times));
         Shaking = true;
         transform.Shake(duration, strength, () => Exists = false);
     }
@@ -89,10 +90,4 @@ public class Tile : MonoBehaviour
     }
 
     public void ResetTile() => Exists = true;
-
-    public void OnTriggerStay2D(Collider2D other)
-    {
-        if (Exists) return; 
-        other.gameObject.SetActive(false);
-    }
 }

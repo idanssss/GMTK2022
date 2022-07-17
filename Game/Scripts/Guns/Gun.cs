@@ -12,6 +12,9 @@ public class Gun : MonoBehaviour
     private bool reloading;
     
     [SerializeField] private float rotationOffset;
+    
+    public delegate void OnGunShoot(Vector2 direction);
+    public event OnGunShoot OnGunShootEvent;
 
     private void Awake()
     {
@@ -43,6 +46,8 @@ public class Gun : MonoBehaviour
         Bullet bullet = bulletGo.GetComponent<Bullet>();
         bullet.shotBy = gameObject;
         bullet.Shoot(Target - (Vector2)transform.position, gunProps);
+        
+        OnGunShootEvent?.Invoke(bullet.Dir);
     }
 
     private IEnumerator CanShootCooldown()
