@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5d043d4ae254ff297a3a07f93caa70b, type: 3}
   m_Name: Player Gun Properties
   m_EditorClassIdentifier: 
-  damage: 10
+  damage: 40
   fireRate: 0.1
   reloadTime: 0.5
   bulletSpeed: 50

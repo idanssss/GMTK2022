@@ -22,7 +22,10 @@ public class Enemy : MonoBehaviour
         _health = GetComponent<CharacterHealth>();
         
         _health.OnGetHit += OnGetHit;
+        _health.OnDeath += OnDeath;
     }
+
+    private void OnDeath() => Destroy(gameObject);
 
     private float lastHit = 0f;
     private void FixedUpdate()
